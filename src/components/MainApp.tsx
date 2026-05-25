@@ -358,7 +358,7 @@ export const MainApp = () => {
       {/* Hero Section */}
       <section id="home" className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 overflow-hidden">
         <video ref={heroVideoRef} className="absolute inset-0 w-full h-full object-cover -z-10" loop muted playsInline>
-          <source src="https://res.cloudinary.com/de2tlhnd6/video/upload/f_auto,q_auto/v1778100942/CIne_Test_V2_m64jqe.mp4" type="video/mp4" />
+          <source src="https://res.cloudinary.com/de2tlhnd6/video/upload/f_auto,q_auto/v1778100942/CIne_Test_V2_m64jqe.mov" type="video/mp4" />
         </video>
         <div className={`absolute inset-0 transition-all duration-700 -z-10 ${isLightMode ? 'bg-[#fafbfc]/85 backdrop-blur-[2px]' : 'bg-black/55'}`} />
         <div className={`absolute inset-0 -z-10 transition-all duration-700 ${isLightMode ? 'bg-[radial-gradient(ellipse_at_50%_60%,rgba(124,58,237,0.08)_0%,transparent_70%)]' : 'bg-[radial-gradient(ellipse_at_50%_60%,rgba(124,58,237,0.15)_0%,transparent_65%)]'}`} />
