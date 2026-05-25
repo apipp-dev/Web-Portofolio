@@ -513,7 +513,7 @@ export const MainApp = () => {
             color="cyan"
           />
           <WorkItem 
-            videoUrl="https://res.cloudinary.com/de2tlhnd6/video/upload/v1778518799/NIGHT_REVISED_fmtpty.mov"
+            videoUrl="https://res.cloudinary.com/de2tlhnd6/video/upload/f_auto,q_auto/v1778518799/NIGHT_REVISED_fmtpty.mov"
             tag="NIGHT CINEMATIC · LOW LIGHT"
             title="Night Aesthetics"
             desc="Teknik color grading redup premium untuk menangkap nuansa misterius dan dramatis atmosfer malam hari."
@@ -527,7 +527,7 @@ export const MainApp = () => {
             color="pink"
           />
           <WorkItem 
-            videoUrl="https://res.cloudinary.com/de2tlhnd6/video/upload/v1778234070/yuki_wep47c.mp4"
+            videoUrl="https://res.cloudinary.com/de2tlhnd6/video/upload/f_auto,q_auto/v1778234070/yuki_wep47c.mp4"
             tag="CINEMATIC TRAVEL EDIT"
             title="Yuki Tour"
             desc="Cinematic travel highlights dengan color grading hangat dan pacing yang halus."
