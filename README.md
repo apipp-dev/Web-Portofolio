@@ -11,8 +11,8 @@ Lebih dari sekadar galeri, prototipe web ini dirancang secara detail untuk membu
 
 ---
 
-## 💡 Fitur Unggulan & Konsep Desain
-Desain website ini mengawinkan fungsionalitas modern dengan visual bertaraf tinggi:
+## 💡 Referensi & Konsep Desain
+Desain website ini mengawinkan fungsionalitas modern dengan visual premium bertaraf tinggi:
 
 ### 1. 🍱 Bento Grid Layout & Portfolio Showcase
 * Menggunakan struktur **Bento Grid** modular untuk memisahkan karya sinematik, statistik pencapaian, dan alur kerja kreatif secara proporsional.
