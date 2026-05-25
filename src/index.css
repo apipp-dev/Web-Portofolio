@@ -1,0 +1,433 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Sora", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-cyan: #00F2FE;
+  --color-violet: #7c3aed;
+  --color-violet-light: #a78bfa;
+  --color-bg: #020205;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+  width: max-content;
+}
+
+@layer base {
+  html, body {
+    @apply bg-bg text-[#f5f5f7] font-sans overflow-x-hidden antialiased selection:bg-cyan/30 selection:text-cyan;
+    width: 100%;
+    max-width: 100vw;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-2xl border border-white/10 transition-all duration-500;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-br from-cyan via-white to-violet-light bg-[length:200%_auto] bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(0,242,254,0.25)];
+  }
+
+  /* 3D Button Components */
+  .btn-3d-violet {
+    @apply relative bg-violet border border-violet-400/20 text-white font-black tracking-widest uppercase transition-all duration-100 ease-out;
+    box-shadow: 0 4px 0 0 #4c1d95, 0 10px 20px rgba(124, 58, 237, 0.25);
+  }
+  .btn-3d-violet:active {
+    @apply translate-y-1;
+    box-shadow: 0 0px 0 0 #4c1d95, 0 4px 8px rgba(124, 58, 237, 0.15);
+  }
+
+  .btn-3d-cyan {
+    @apply relative bg-cyan border border-cyan/30 text-bg font-black tracking-widest uppercase transition-all duration-100 ease-out;
+    box-shadow: 0 4px 0 0 #008fa5, 0 10px 20px rgba(0, 242, 254, 0.25);
+  }
+  .btn-3d-cyan:active {
+    @apply translate-y-1;
+    box-shadow: 0 0px 0 0 #008fa5, 0 4px 8px rgba(0, 242, 254, 0.15);
+  }
+
+  .btn-3d-glass {
+    @apply relative bg-white/5 border border-white/10 text-white font-black tracking-widest uppercase transition-all duration-100 ease-out backdrop-blur-md;
+    box-shadow: 0 4px 0 0 rgba(255, 255, 255, 0.1), 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  .btn-3d-glass:active {
+    @apply translate-y-1;
+    box-shadow: 0 0px 0 0 rgba(255, 255, 255, 0), 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-3d-white {
+    @apply relative bg-white border border-gray-200 text-black font-black tracking-widest uppercase transition-all duration-100 ease-out shadow-2xl;
+    box-shadow: 0 4px 0 0 #cccccc, 0 10px 20px rgba(255, 255, 255, 0.05);
+  }
+  .btn-3d-white:active {
+    @apply translate-y-1;
+    box-shadow: 0 0px 0 0 #cccccc, 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* 3D Tactile Cards with Preserved perspective details */
+  .card-3d-kinetic {
+    @apply transition-all duration-500 ease-out;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    backface-visibility: hidden;
+    will-change: transform, box-shadow;
+  }
+
+  /* Prevent sticky hover states on hover-less devices (mobile/touch) */
+  @media (hover: hover) {
+    .glass:hover {
+      @apply border-cyan/35 shadow-[0_0_40px_rgba(0,242,254,0.07)];
+    }
+
+    .btn-3d-violet:hover {
+      @apply -translate-y-0.5 bg-violet/90;
+      box-shadow: 0 6px 0 0 #4c1d95, 0 14px 24px rgba(124, 58, 237, 0.35);
+    }
+
+    .btn-3d-cyan:hover {
+      @apply -translate-y-0.5 bg-[#1bf4ff] text-bg;
+      box-shadow: 0 6px 0 0 #008fa5, 0 14px 24px rgba(0, 242, 254, 0.35);
+    }
+
+    .btn-3d-glass:hover {
+      @apply -translate-y-0.5 bg-white/10 border-white/20 text-white;
+      box-shadow: 0 6px 0 0 rgba(255, 255, 255, 0.15), 0 14px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn-3d-white:hover {
+      @apply -translate-y-0.5 bg-cyan text-black border-cyan/40;
+      box-shadow: 0 6px 0 0 #008fa5, 0 14px 24px rgba(0, 242, 254, 0.25);
+    }
+
+    .card-3d-kinetic:hover {
+      transform: translateY(-8px) rotateX(1.5deg) rotateY(-1.5deg);
+      @apply border-cyan/35 shadow-[0_20px_50px_rgba(0,242,254,0.08)];
+    }
+  }
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.shine-anim {
+  animation: shine 5s linear infinite;
+}
+
+@keyframes liquidMove {
+  0%   { transform: scale(1) translate3d(0,0,0); }
+  50%  { transform: scale(1.08) translate3d(3%,2%,0); }
+  100% { transform: scale(1) translate3d(-1%,-2%,0); }
+}
+
+.liquid-bg {
+  @apply fixed inset-0 -z-10 blur-[80px];
+  background:
+    radial-gradient(circle at 15% 25%, rgba(124,58,237,.14) 0%, transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(0,242,254,.1) 0%, transparent 45%);
+  animation: liquidMove 25s ease-in-out infinite alternate;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translate3d(0,0,0);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-bg;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-cyan/25 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-cyan;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* ==========================================
+   LIGHT MODE OVERRIDES (PERFECT CONTRAST & TYPOGRAPHY)
+   ========================================== */
+html.light, .light {
+  --color-bg: #fafbfc;
+  --color-text-main: #0b0c10;
+  --color-glass-bg: rgba(255, 255, 255, 0.78);
+  --color-glass-border: rgba(15, 23, 42, 0.08);
+}
+
+.light body {
+  background-color: #fafbfc;
+  color: #0b0c10;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Base headings & absolute text colors inside light containers */
+.light h1, .light h2, .light h3, .light h4, .light h5, .light h6 {
+  color: #0b0c10 !important;
+}
+
+/* Explicit text override filters for light theme */
+.light .text-white {
+  color: #0b0c10 !important;
+}
+.light .text-white\/90 { color: rgba(11, 12, 16, 0.95) !important; }
+.light .text-white\/80 { color: rgba(15, 23, 42, 0.85) !important; }
+.light .text-white\/70 { color: rgba(30, 41, 59, 0.8) !important; }
+.light .text-white\/60 { color: #334155 !important; }
+.light .text-white\/50 { color: #475569 !important; }
+.light .text-white\/40 { color: #57657a !important; }
+.light .text-white\/30 { color: #64748b !important; }
+.light .text-white\/20 { color: #94a3b8 !important; }
+
+/* Standard gray typography mappings */
+.light .text-gray-100 { color: #0f172a !important; }
+.light .text-gray-200 { color: #1e293b !important; }
+.light .text-gray-300 { color: #334155 !important; }
+.light .text-gray-400 { color: #475569 !important; }
+.light .text-gray-500 { color: #64748b !important; }
+.light .text-gray-650 { color: #4b5563 !important; }
+.light .text-\[\#a1a1a5\] { color: #475569 !important; }
+.light .text-\[\#f5f5f7\] { color: #0b0c10 !important; }
+
+/* Cyan Accent override: Deeper slate-turquoise for readable contrast in light mode */
+.light .text-cyan,
+.light .text-\[\#00f2fe\],
+.light .group-hover\:text-cyan:hover,
+.light .group-hover\:text-\[\#00f2fe\]:hover,
+.light .hover\:text-cyan:hover,
+.light .text-cyan\/80,
+.light .text-\[\#00f2fe\]\/80 {
+  color: #0891b2 !important; /* Rich readable Cyan/Teal shade */
+}
+
+.light .border-cyan,
+.light .border-\[\#00f2fe\],
+.light .border-cyan\/20,
+.light .border-cyan\/30,
+.light .border-\[\#00f2fe\]\/20,
+.light .border-\[\#00f2fe\]\/40,
+.light .group-hover\:border-cyan\/30:hover {
+  border-color: rgba(8, 145, 178, 0.3) !important;
+}
+
+.light .bg-cyan\/10,
+.light .bg-\[\#00f2fe\]\/10 {
+  background-color: rgba(8, 145, 178, 0.08) !important;
+}
+
+.light .shadow-\[0_0_20px_rgba\(0\,242\,254\,0\.35\)\] {
+  box-shadow: 0 10px 25px rgba(8, 145, 178, 0.12) !important;
+}
+
+/* Dynamic Island container & elements styling */
+.light .fixed.top-4 {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+  box-shadow: 0 10px 40px rgba(15, 23, 42, 0.06), 0 0 1px rgba(15, 23, 42, 0.1) !important;
+  backdrop-filter: blur(40px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(200%) !important;
+}
+.light .fixed.top-4 span:not(.text-cyan, .text-pink-400, .text-emerald-400, .text-violet-light) {
+  color: #1e293b !important;
+}
+.light .fixed.top-4 .bg-white\/10 {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Glass panel design adjustments */
+.light .glass {
+  background-color: rgba(255, 255, 255, 0.72) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+  color: #0b0c10 !important;
+  backdrop-filter: blur(40px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(180%) !important;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.025), 0 1px 3px rgba(15, 23, 42, 0.02) !important;
+}
+
+/* Interactive elements background modifications */
+.light .bg-white\/5 { background-color: rgba(15, 23, 42, 0.045) !important; }
+.light .bg-white\/10 { background-color: rgba(15, 23, 42, 0.07) !important; }
+.light .bg-white\/\[0\.08\] { background-color: rgba(255, 255, 255, 0.9) !important; border-color: rgba(15, 23, 42, 0.08) !important; }
+.light .bg-white\/\[0\.04\] { background-color: rgba(255, 255, 255, 0.6) !important; }
+.light .bg-white\/\[0\.03\] { background-color: rgba(15, 23, 42, 0.02) !important; }
+.light .bg-white\/\[0\.02\] { background-color: rgba(255, 255, 255, 0.5) !important; border-color: rgba(15, 23, 42, 0.05) !important; }
+.light .bg-white\/\[0\.01\] { background-color: rgba(255, 255, 255, 0.3) !important; }
+
+.light .border-white\/5 { border-color: rgba(15, 23, 42, 0.06) !important; }
+.light .border-white\/10 { border-color: rgba(15, 23, 42, 0.08) !important; }
+.light .border-\[\#ffffff\]\/\[0\.06\] { border-color: rgba(15, 23, 42, 0.06) !important; }
+.light .border-\[\#ffffff\]\/\[0\.03\] { border-color: rgba(15, 23, 42, 0.04) !important; }
+
+/* Interactive Simulator card grid highlights */
+.light .bg-gradient-to-r.from-cyan\/5 {
+  background-image: linear-gradient(to right, rgba(8, 145, 178, 0.05), rgba(244, 63, 94, 0.03)) !important;
+  border-color: rgba(15, 23, 42, 0.07) !important;
+}
+
+/* Submenus and Accordions */
+.light .bg-\[\#020205\]\/95 {
+  background-color: rgba(248, 250, 252, 0.97) !important;
+}
+.light .border-t.border-white\/10 {
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+/* Dividers & Borders */
+.light .divide-white\/5 > * {
+  border-color: rgba(15, 23, 42, 0.06) !important;
+}
+.light .divide-y {
+  border-color: rgba(15, 23, 42, 0.06) !important;
+}
+
+/* Modals & Tooltips */
+.light .bg-neutral-950\/95,
+.light .bg-neutral-950,
+.light .bg-neutral-900,
+.light .bg-\[\#090a0f\]\/90 {
+  background-color: rgba(255, 255, 255, 0.96) !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+  color: #0b0c10 !important;
+}
+
+/* Table styling for TikTok / Instagram Stats */
+.light table {
+  background-color: transparent;
+}
+.light tr {
+  color: #1e293b !important;
+  border-color: rgba(15, 23, 42, 0.06) !important;
+}
+.light tr:hover {
+  background-color: rgba(15, 23, 42, 0.02) !important;
+}
+.light th {
+  color: #334155 !important;
+  border-color: rgba(15, 23, 42, 0.06) !important;
+  background-color: rgba(15, 23, 42, 0.02) !important;
+}
+.light td {
+  color: #1e293b !important;
+}
+.light tr.bg-white\/\[0\.02\] {
+  background-color: rgba(15, 23, 42, 0.015) !important;
+}
+.light .hover\:bg-white\/\[0\.04\]:hover {
+  background-color: rgba(15, 23, 42, 0.035) !important;
+}
+
+/* Interactive charts components detail */
+.light .bg-black\/35 {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  border-color: rgba(15, 23, 42, 0.07) !important;
+}
+.light svg line {
+  stroke: rgba(15, 23, 42, 0.06) !important;
+}
+
+/* Input elements styling */
+.light input, .light textarea, .light select {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+  color: #0b0c10 !important;
+}
+.light input::placeholder, .light textarea::placeholder {
+  color: #cbd5e1 !important;
+}
+
+/* Moving visual background gradient in light mode */
+.light .liquid-bg {
+  background:
+    radial-gradient(circle at 10% 20%, rgba(124, 58, 237, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(8, 145, 178, 0.06) 0%, transparent 50%) !important;
+  background-color: #fafbfc !important;
+}
+
+/* Button 3D effects under light mode */
+.light .btn-3d-glass {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+  color: #0b0c10 !important;
+  box-shadow: 0 4px 0 0 rgba(15, 23, 42, 0.15), 0 10px 20px rgba(15, 23, 42, 0.03) !important;
+}
+.light .btn-3d-glass:active {
+  box-shadow: 0 0px 0 0 rgba(0, 0, 0, 0) !important;
+}
+
+@media (hover: hover) {
+  .light .btn-3d-glass:hover {
+    background-color: #ffffff !important;
+    color: #7c3aed !important;
+    border-color: rgba(124, 58, 237, 0.3) !important;
+    box-shadow: 0 6px 0 0 rgba(124, 58, 237, 0.15), 0 14px 24px rgba(124, 58, 237, 0.08) !important;
+  }
+}
+
+/* Timeline specific alignments inside light mode */
+.light .bg-white\/40 {
+  background-color: rgba(15, 23, 42, 0.3) !important;
+}
+
+/* Instagram cards / feed posts inside analytics */
+.light .bg-top-instagram-posts {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Double-sided scrollbar colors */
+.light::-webkit-scrollbar-track {
+  background-color: #fafbfc;
+}
+.light::-webkit-scrollbar-thumb {
+  background-color: rgba(8, 145, 178, 0.2);
+}
+
+/* Gradient headings formatting for perfect legibility in light mode */
+.light .gradient-text {
+  background-image: linear-gradient(135deg, #6d28d9 0%, #0891b2 50%, #1e1b4b 100%) !important;
+  filter: none !important;
+  text-shadow: none !important;
+}
+
+/* Absolute backgrounds styling (like processes, sliders, etc.) */
+.light .bg-black\/20 {
+  background-color: rgba(15, 23, 42, 0.035) !important;
+}
+
+/* Instagram highlights & interactive elements inside Stats */
+.light .bg-\[\#0b0c10\]\/50 {
+  background-color: rgba(255, 255, 255, 0.82) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.01) !important;
+}
+
+.light .hover\:bg-\[\#12141c\]\/60:hover {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(124, 58, 237, 0.22) !important;
+  box-shadow: 0 12px 36px rgba(124, 58, 237, 0.05) !important;
+}
+
+
+

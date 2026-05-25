@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Muhammad Afif Portfolio",
+  "description": "A cinematic visual storyteller portfolio featuring AI-powered visual arts, video editing, and web development.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
