@@ -3,7 +3,10 @@ import { motion, AnimatePresence, useInView } from 'motion/react';
 import { Menu, X, Mail, MessageCircle, Instagram, Video, ChevronDown, Send, ArrowRight, ArrowUp, Zap, Camera, Monitor, Smartphone, Globe, Target, Clock, Trophy, Share2, Layers, Sun, BarChart2, Users, LineChart, Calendar, PieChart, Heart, MessageSquare, ExternalLink, Moon } from 'lucide-react';
 import { useTranslation } from '../context/LanguageContext';
 import { Counter } from './Counter';
+import { ConvexVideoPlayer } from './ConvexVideoPlayer';
+import PortfolioVideo from './PortfolioVideo';
 import { ColorComparison } from './ColorComparison';
+
 import { dailyStats, tiktokVideos, followerHistory, followerActivity, genderDistribution, territoriesDistribution, instagramInsights } from '../data/tiktokData';
 
 const urlCoastalViews = new URL('../assets/images/ig_post_1.png', import.meta.url).href;
@@ -357,9 +360,16 @@ export const MainApp = () => {
 
       {/* Hero Section */}
       <section id="home" className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 overflow-hidden">
-        <video ref={heroVideoRef} className="absolute inset-0 w-full h-full object-cover -z-10" loop muted playsInline>
-          <source src="https://res.cloudinary.com/de2tlhnd6/video/upload/f_auto,q_auto/v1778100942/CIne_Test_V2_m64jqe.mov" type="video/mp4" />
-        </video>
+        <ConvexVideoPlayer 
+          storageId="kg29cjn6gkh21jsdcxtb957cns88cdwn"
+          videoRef={heroVideoRef}
+          className="absolute inset-0 w-full h-full object-cover -z-10"
+          loop
+          muted
+          playsInline
+          controls={false}
+          autoPlay={true}
+        />
         <div className={`absolute inset-0 transition-all duration-700 -z-10 ${isLightMode ? 'bg-[#fafbfc]/85 backdrop-blur-[2px]' : 'bg-black/55'}`} />
         <div className={`absolute inset-0 -z-10 transition-all duration-700 ${isLightMode ? 'bg-[radial-gradient(ellipse_at_50%_60%,rgba(124,58,237,0.08)_0%,transparent_70%)]' : 'bg-[radial-gradient(ellipse_at_50%_60%,rgba(124,58,237,0.15)_0%,transparent_65%)]'}`} />
 
@@ -498,82 +508,82 @@ export const MainApp = () => {
         </div>
       </section>
 
-     {/* Portfolio Section */}
-<section id="work" className="max-w-7xl mx-auto px-6 py-32">
-  <div className="text-center mb-20">
-    <p className="text-[10px] font-black uppercase tracking-[.35em] text-cyan mb-4">
-      Portfolio
-    </p>
-    <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight">
-      Selected <span className="gradient-text shine-anim">Works</span>
-    </h2>
-  </div>
+      {/* Portfolio Section */}
+      <section id="work" className="max-w-7xl mx-auto px-6 py-32">
+        <div className="text-center mb-20">
+          <p className="text-[10px] font-black uppercase tracking-[.35em] text-cyan mb-4">
+            Portfolio
+          </p>
+          <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight">
+            Selected <span className="gradient-text shine-anim">Works</span>
+          </h2>
+        </div>
 
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-    <WorkItem 
-      youtubeId="2EucRuqi1TM"
-      youtubeUrl="https://youtube.com/shorts/2EucRuqi1TM"
-      tag="CAPCUT · 4K COLOR GRADING"
-      title="Maharani Cinematic"
-      desc="Menyusun footage menjadi cerita yang informatif dan emosional untuk perjalanan spiritual umroh."
-      color="cyan"
-    />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <WorkItem 
+            youtubeId="2EucRuqi1TM"
+            youtubeUrl="https://youtube.com/shorts/2EucRuqi1TM"
+            tag="CAPCUT · 4K COLOR GRADING"
+            title="Maharani Cinematic"
+            desc="Menyusun footage menjadi cerita yang informatif dan emosional untuk perjalanan spiritual umroh."
+            color="cyan"
+          />
 
-    <WorkItem 
-      youtubeId="1oXUNxG-XRA"
-      youtubeUrl="https://youtube.com/shorts/1oXUNxG-XRA"
-      tag="NIGHT CINEMATIC · LOW LIGHT"
-      title="Night Aesthetics"
-      desc="Teknik color grading redup premium untuk menangkap nuansa misterius dan dramatis atmosfer malam hari."
-      color="cyan"
-    />
+          <WorkItem 
+            youtubeId="1oXUNxG-XRA"
+            youtubeUrl="https://youtube.com/shorts/1oXUNxG-XRA"
+            tag="NIGHT CINEMATIC · LOW LIGHT"
+            title="Night Aesthetics"
+            desc="Teknik color grading redup premium untuk menangkap nuansa misterius dan dramatis atmosfer malam hari."
+            color="cyan"
+          />
 
-    <WorkItem 
-      youtubeId="5Tzgz_1fbGI"
-      youtubeUrl="https://youtube.com/shorts/5Tzgz_1fbGI"
-      tag="INSTAGRAM REELS"
-      title="Salma Aulia"
-      desc="High-retention edit untuk Instagram Reels dengan transisi dinamis dan color pop yang vibrant."
-      color="pink"
-    />
+          <WorkItem 
+            youtubeId="5Tzgz_1fbGI"
+            youtubeUrl="https://youtube.com/shorts/5Tzgz_1fbGI"
+            tag="INSTAGRAM REELS"
+            title="Salma Aulia"
+            desc="High-retention edit untuk Instagram Reels dengan transisi dinamis dan color pop yang vibrant."
+            color="pink"
+          />
 
-    <WorkItem 
-      youtubeId="vzQ4JA7lsy4"
-      youtubeUrl="https://youtube.com/shorts/vzQ4JA7lsy4"
-      tag="CINEMATIC TRAVEL EDIT"
-      title="Yuki Tour"
-      desc="Cinematic travel highlights dengan color grading hangat dan pacing yang halus."
-      color="orange"
-    />
+          <WorkItem 
+            youtubeId="vzQ4JA7lsy4"
+            youtubeUrl="https://youtube.com/shorts/vzQ4JA7lsy4"
+            tag="CINEMATIC TRAVEL EDIT"
+            title="Yuki Tour"
+            desc="Cinematic travel highlights dengan color grading hangat dan pacing yang halus."
+            color="orange"
+          />
 
-    <WorkItem 
-      youtubeId="d_lAb5QIV2M"
-      youtubeUrl="https://youtube.com/shorts/d_lAb5QIV2M"
-      tag="VIRAL REELS · SHORT FORM"
-      title="Cinematic Miwaa"
-      desc="Konten pendek dengan transisi smooth dan tone cinematic untuk Reels & TikTok."
-      color="violet"
-    />
-  </div>
-</section>
+          <WorkItem 
+            youtubeId="d_lAb5QIV2M"
+            youtubeUrl="https://youtube.com/shorts/d_lAb5QIV2M"
+            tag="VIRAL REELS · SHORT FORM"
+            title="Cinematic Miwaa"
+            desc="Konten pendek dengan transisi smooth dan tone cinematic untuk Reels & TikTok."
+            color="violet"
+          />
+        </div>
+      </section>
 
-{/* Color Grading Section */}
-<section className="py-24 bg-black/20">
-  <div className="max-w-4xl mx-auto px-6 text-center">
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="mb-14"
-    >
-      <h2 className="text-3xl font-black uppercase mb-4 tracking-tight">
-        Proses <span className="gradient-text">Color Grading</span>
-      </h2>
-      <p className="text-gray-500 text-sm">{t('work.before')} & {t('work.after')}</p>
-    </motion.div>
-    <ColorComparison />
-  </div>
-</section>
+      {/* Color Grading Section */}
+      <section className="py-24 bg-black/20">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-14"
+          >
+            <h2 className="text-3xl font-black uppercase mb-4 tracking-tight">
+              Proses <span className="gradient-text">Color Grading</span>
+            </h2>
+            <p className="text-gray-500 text-sm">{t('work.before')} & {t('work.after')}</p>
+          </motion.div>
+          <ColorComparison />
+        </div>
+      </section>
 
       {/* Journey Timeline Section */}
       <section id="journey" className="py-32 bg-gradient-to-b from-transparent via-violet/5 to-transparent overflow-hidden">
@@ -3238,14 +3248,29 @@ const ToolCard = ({ icon, title, desc, color }: { icon: React.ReactNode, title: 
   </motion.div>
 );
 
-const WorkItem = ({ youtubeId, youtubeUrl, tag, title, desc, color }: { 
+const WorkItem = ({ 
+  youtubeId, 
+  youtubeUrl,
+  tag, 
+  title, 
+  desc, 
+  color 
+}: { 
   youtubeId: string, 
-  youtubeUrl: string, 
+  youtubeUrl: string,
   tag: string, 
   title: string, 
   desc: string, 
   color: string 
 }) => {
+  const tagColorClass =
+    color === "pink"
+      ? "text-pink-400"
+      : color === "orange"
+      ? "text-orange-400"
+      : color === "violet"
+      ? "text-violet-light"
+      : "text-cyan";
 
   return (
     <motion.div 
@@ -3255,37 +3280,24 @@ const WorkItem = ({ youtubeId, youtubeUrl, tag, title, desc, color }: {
       viewport={{ once: true, margin: '-100px' }}
       transition={{ duration: 0.7, ease: 'easeOut' }}
     >
-<div className="video-frame relative aspect-[9/16] overflow-hidden rounded-[2rem] bg-black cursor-pointer">
-  <iframe
-    src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=1&loop=1&playlist=${youtubeId}&controls=0&modestbranding=1&rel=0&playsinline=1&iv_load_policy=3&disablekb=1&fs=0`}
-    title={title}
-    frameBorder="0"
-    allow="autoplay; encrypted-media; picture-in-picture"
-    allowFullScreen
-    className="youtube-iframe"
-  />
-
-  <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/80 to-transparent z-10 pointer-events-none" />
-  <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/80 to-transparent z-10 pointer-events-none" />
-
-  <div className="absolute left-4 bottom-4 z-20 px-4 py-2 rounded-full bg-black/60 backdrop-blur-xl text-white text-xs font-bold pointer-events-none">
-    🔇 
-  </div>
-
-  <a
-    href={youtubeUrl}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="absolute right-4 bottom-4 z-20 w-11 h-11 rounded-full bg-white/15 backdrop-blur-xl text-white text-lg flex items-center justify-center hover:bg-white/25 transition"
-    aria-label="Open full video"
-  >
-    ↗
-  </a>
-</div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-40 group-hover:opacity-80 transition-opacity duration-500" />
+      <div className="relative">
+        <PortfolioVideo
+          youtubeId={youtubeId}
+          title={title}
+        />
+        <a
+          href={youtubeUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="absolute right-4 bottom-4 z-20 w-11 h-11 rounded-full bg-white/15 backdrop-blur-xl text-white text-lg flex items-center justify-center hover:bg-white/25 transition"
+          aria-label="Open full video"
+          onClick={(e) => e.stopPropagation()}
+        >
+          ↗
+        </a>
       </div>
       <div className="px-2">
-        <span className={`text-[9px] font-black uppercase tracking-[.25em] text-${color}`}>{tag}</span>
+        <span className={`text-[9px] font-black uppercase tracking-[.25em] ${tagColorClass}`}>{tag}</span>
         <h3 className="text-2xl font-black text-white mt-2 mb-3 group-hover:text-cyan transition-colors duration-300">{title}</h3>
         <p className="text-xs text-gray-400 leading-relaxed font-light group-hover:text-gray-300 transition-colors duration-300">{desc}</p>
       </div>
