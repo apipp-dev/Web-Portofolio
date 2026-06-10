@@ -3238,29 +3238,14 @@ const ToolCard = ({ icon, title, desc, color }: { icon: React.ReactNode, title: 
   </motion.div>
 );
 
-const WorkItem = ({ videoUrl, tag, title, desc, color }: { videoUrl: string, tag: string, title: string, desc: string, color: string }) => {
-  const videoRef = React.useRef<HTMLVideoElement>(null);
-
-  React.useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          video.play().catch(() => {});
-        } else {
-          video.pause();
-        }
-      },
-      { threshold: 0.05, rootMargin: '150px' }
-    );
-
-    observer.observe(video);
-    return () => {
-      observer.unobserve(video);
-    };
-  }, []);
+const WorkItem = ({ youtubeId, youtubeUrl, tag, title, desc, color }: { 
+  youtubeId: string, 
+  youtubeUrl: string, 
+  tag: string, 
+  title: string, 
+  desc: string, 
+  color: string 
+}) => {
 
   return (
     <motion.div 
@@ -3270,15 +3255,33 @@ const WorkItem = ({ videoUrl, tag, title, desc, color }: { videoUrl: string, tag
       viewport={{ once: true, margin: '-100px' }}
       transition={{ duration: 0.7, ease: 'easeOut' }}
     >
-      <div className="aspect-[9/16] rounded-[1.8rem] overflow-hidden bg-black/20 relative shadow-2xl">
-        <video 
-          ref={videoRef}
-          className="w-full h-full object-cover transform scale-100 group-hover:scale-[1.03] transition-transform duration-700" 
-          muted 
-          loop 
-          playsInline 
-          src={videoUrl} 
-        />
+<div className="video-frame relative aspect-[9/16] overflow-hidden rounded-[2rem] bg-black cursor-pointer">
+  <iframe
+    src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=1&loop=1&playlist=${youtubeId}&controls=0&modestbranding=1&rel=0&playsinline=1&iv_load_policy=3&disablekb=1&fs=0`}
+    title={title}
+    frameBorder="0"
+    allow="autoplay; encrypted-media; picture-in-picture"
+    allowFullScreen
+    className="youtube-iframe"
+  />
+
+  <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/80 to-transparent z-10 pointer-events-none" />
+  <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/80 to-transparent z-10 pointer-events-none" />
+
+  <div className="absolute left-4 bottom-4 z-20 px-4 py-2 rounded-full bg-black/60 backdrop-blur-xl text-white text-xs font-bold pointer-events-none">
+    🔇 
+  </div>
+
+  <a
+    href={youtubeUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="absolute right-4 bottom-4 z-20 w-11 h-11 rounded-full bg-white/15 backdrop-blur-xl text-white text-lg flex items-center justify-center hover:bg-white/25 transition"
+    aria-label="Open full video"
+  >
+    ↗
+  </a>
+</div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-40 group-hover:opacity-80 transition-opacity duration-500" />
       </div>
       <div className="px-2">
