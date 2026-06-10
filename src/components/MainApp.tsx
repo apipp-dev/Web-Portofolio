@@ -506,7 +506,7 @@ export const MainApp = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           <WorkItem 
-            videoUrl="https://res.cloudinary.com/de2tlhnd6/video/upload/f_auto,q_auto/v1778043163/maharani_hmioqh.mp4"
+            videoUrl="https://youtube.com/shorts/2EucRuqi1TM?feature=share"
             tag="CAPCUT · 4K COLOR GRADING"
             title="Maharani Cinematic"
             desc="Menyusun footage menjadi cerita yang informatif dan emosional untuk perjalanan spiritual umroh."
