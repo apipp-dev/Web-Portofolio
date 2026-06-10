@@ -498,66 +498,82 @@ export const MainApp = () => {
         </div>
       </section>
 
-      {/* Portfolio Section */}
-      <section id="work" className="max-w-7xl mx-auto px-6 py-32">
-        <div className="text-center mb-20">
-          <p className="text-[10px] font-black uppercase tracking-[.35em] text-cyan mb-4">Portfolio</p>
-          <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight">Selected <span className="gradient-text shine-anim">Works</span></h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          <WorkItem 
-            videoUrl="https://youtube.com/shorts/2EucRuqi1TM?feature=share"
-            tag="CAPCUT · 4K COLOR GRADING"
-            title="Maharani Cinematic"
-            desc="Menyusun footage menjadi cerita yang informatif dan emosional untuk perjalanan spiritual umroh."
-            color="cyan"
-          />
-          <WorkItem 
-            videoUrl="https://res.cloudinary.com/de2tlhnd6/video/upload/f_auto,q_auto/v1778518799/NIGHT_REVISED_fmtpty.mov"
-            tag="NIGHT CINEMATIC · LOW LIGHT"
-            title="Night Aesthetics"
-            desc="Teknik color grading redup premium untuk menangkap nuansa misterius dan dramatis atmosfer malam hari."
-            color="cyan"
-          />
-          <WorkItem 
-            videoUrl="https://res.cloudinary.com/de2tlhnd6/video/upload/f_auto,q_auto/v1778043739/Salma_Aulia_NOWM_1_rvv8se.mp4"
-            tag="INSTAGRAM REELS"
-            title="Salma Aulia"
-            desc="High-retention edit untuk Instagram Reels dengan transisi dinamis dan color pop yang vibrant."
-            color="pink"
-          />
-          <WorkItem 
-            videoUrl="https://res.cloudinary.com/de2tlhnd6/video/upload/f_auto,q_auto/v1778234070/yuki_wep47c.mp4"
-            tag="CINEMATIC TRAVEL EDIT"
-            title="Yuki Tour"
-            desc="Cinematic travel highlights dengan color grading hangat dan pacing yang halus."
-            color="orange"
-          />
-          <WorkItem 
-            videoUrl="https://res.cloudinary.com/de2tlhnd6/video/upload/f_auto,q_auto/v1778051234/26_Feb_-_Cinematic_Miwaa_WM_de0s2x.mp4"
-            tag="VIRAL REELS · SHORT FORM"
-            title="Cinematic Miwaa"
-            desc="Konten pendek dengan transisi smooth dan tone cinematic untuk Reels & TikTok."
-            color="violet"
-          />
-        </div>
-      </section>
+     {/* Portfolio Section */}
+<section id="work" className="max-w-7xl mx-auto px-6 py-32">
+  <div className="text-center mb-20">
+    <p className="text-[10px] font-black uppercase tracking-[.35em] text-cyan mb-4">
+      Portfolio
+    </p>
+    <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight">
+      Selected <span className="gradient-text shine-anim">Works</span>
+    </h2>
+  </div>
 
-      {/* Color Grading Section */}
-      <section className="py-24 bg-black/20">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-14"
-          >
-            <h2 className="text-3xl font-black uppercase mb-4 tracking-tight">Proses <span className="gradient-text">Color Grading</span></h2>
-            <p className="text-gray-500 text-sm">{t('work.before')} & {t('work.after')}</p>
-          </motion.div>
-          <ColorComparison />
-        </div>
-      </section>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+    <WorkItem 
+      youtubeId="2EucRuqi1TM"
+      youtubeUrl="https://youtube.com/shorts/2EucRuqi1TM"
+      tag="CAPCUT · 4K COLOR GRADING"
+      title="Maharani Cinematic"
+      desc="Menyusun footage menjadi cerita yang informatif dan emosional untuk perjalanan spiritual umroh."
+      color="cyan"
+    />
+
+    <WorkItem 
+      youtubeId="1oXUNxG-XRA"
+      youtubeUrl="https://youtube.com/shorts/1oXUNxG-XRA"
+      tag="NIGHT CINEMATIC · LOW LIGHT"
+      title="Night Aesthetics"
+      desc="Teknik color grading redup premium untuk menangkap nuansa misterius dan dramatis atmosfer malam hari."
+      color="cyan"
+    />
+
+    <WorkItem 
+      youtubeId="5Tzgz_1fbGI"
+      youtubeUrl="https://youtube.com/shorts/5Tzgz_1fbGI"
+      tag="INSTAGRAM REELS"
+      title="Salma Aulia"
+      desc="High-retention edit untuk Instagram Reels dengan transisi dinamis dan color pop yang vibrant."
+      color="pink"
+    />
+
+    <WorkItem 
+      youtubeId="vzQ4JA7lsy4"
+      youtubeUrl="https://youtube.com/shorts/vzQ4JA7lsy4"
+      tag="CINEMATIC TRAVEL EDIT"
+      title="Yuki Tour"
+      desc="Cinematic travel highlights dengan color grading hangat dan pacing yang halus."
+      color="orange"
+    />
+
+    <WorkItem 
+      youtubeId="d_lAb5QIV2M"
+      youtubeUrl="https://youtube.com/shorts/d_lAb5QIV2M"
+      tag="VIRAL REELS · SHORT FORM"
+      title="Cinematic Miwaa"
+      desc="Konten pendek dengan transisi smooth dan tone cinematic untuk Reels & TikTok."
+      color="violet"
+    />
+  </div>
+</section>
+
+{/* Color Grading Section */}
+<section className="py-24 bg-black/20">
+  <div className="max-w-4xl mx-auto px-6 text-center">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="mb-14"
+    >
+      <h2 className="text-3xl font-black uppercase mb-4 tracking-tight">
+        Proses <span className="gradient-text">Color Grading</span>
+      </h2>
+      <p className="text-gray-500 text-sm">{t('work.before')} & {t('work.after')}</p>
+    </motion.div>
+    <ColorComparison />
+  </div>
+</section>
 
       {/* Journey Timeline Section */}
       <section id="journey" className="py-32 bg-gradient-to-b from-transparent via-violet/5 to-transparent overflow-hidden">
